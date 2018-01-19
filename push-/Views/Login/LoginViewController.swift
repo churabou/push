@@ -3,11 +3,11 @@ import UIKit
 class LoginViewController: UIViewController {
     
     var isLogin = true
+    
+    var viewModel = LoginViewModel()
     var webView = UIWebView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    func initializeView() {
         title = "login"
         view.backgroundColor = .red
         webView.frame = view.bounds
@@ -15,29 +15,31 @@ class LoginViewController: UIViewController {
         view.addSubview(webView)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        if isLogin {
-
-            let c = ProfileViewController()
-            let n = UINavigationController(rootViewController: c)
-            self.present(n, animated: true, completion: nil)
-
-        } else {
-            
-            let client_id = "3b4c1dac674c96b2b7db"
-            guard let url =  URL(string: "https://github.com/login/oauth/authorize?client_id=\(client_id)") else {
-                return
-            }
-            let request = URLRequest(url: url)
-            webView.loadRequest(request)
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initializeView()
+        viewModel.delegate = self
+        viewModel.isLogin = true
     }
     
+    fileprivate func loadLoginView() {
+        
+        let client_id = "3b4c1dac674c96b2b7db"
+        guard let url =  URL(string: "https://github.com/login/oauth/authorize?client_id=\(client_id)") else {
+            return
+        }
+        let request = URLRequest(url: url)
+        webView.loadRequest(request)
+    }
+    
+    fileprivate func presenView() {
+        
+        let c = ProfileViewController()
+        let n = UINavigationController(rootViewController: c)
+        self.present(n, animated: true, completion: nil)
+    }
 }
-//code = 4ab146433594dccdbb29
-//
-//https://api.github.com/user?access_token=1f3e5e9da619f5486deaa38eeeae18e26ff37369
+
 
 extension LoginViewController: UIWebViewDelegate {
     
@@ -47,15 +49,24 @@ extension LoginViewController: UIWebViewDelegate {
         
         if !url.contains("code") { return true }
         
-        let code = url.split(separator: "=")[1]
-        OauthManager.getToken(code: String(code), completion: { token in
-            if !token.isEmpty {
-                let c = ProfileViewController()
-                let n = UINavigationController(rootViewController: c)
-                self.present(n, animated: true, completion: nil)
-            }
-        })
+        viewModel.code = String(url.split(separator: "=")[1])
         return true
+    }
+}
+
+extension LoginViewController: LoginViewModelDelegate {
+    
+    func requestLogin(_ isLogin: Bool) {
+        
+        if isLogin {
+            presenView()
+        } else {
+            loadLoginView()
+        }
+    }
+    
+    func didFetchToken(_ token: String) {
+        presenView()
     }
 }
 

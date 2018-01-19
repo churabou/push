@@ -19,13 +19,14 @@
 		C935B17C200B7DB10047C7AA /* push_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C935B17B200B7DB10047C7AA /* push_UITests.swift */; };
 		C96140F7201039D200C8450F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96140F6201039D200C8450F /* APIClient.swift */; };
 		C961410820124A0C00C8450F /* AtomParcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961410720124A0C00C8450F /* AtomParcer.swift */; };
+		C961410C20124BED00C8450F /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961410A20124BED00C8450F /* Feed.swift */; };
+		C961410D20124BED00C8450F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961410B20124BED00C8450F /* Profile.swift */; };
+		C961410F20124BFA00C8450F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961410E20124BFA00C8450F /* LoginViewModel.swift */; };
 		C9A9CD40200D9E64000BE842 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD3F200D9E64000BE842 /* Config.swift */; };
 		C9A9CD42200D9E82000BE842 /* OauthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD41200D9E82000BE842 /* OauthManager.swift */; };
 		C9A9CD44200E0E8A000BE842 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD43200E0E8A000BE842 /* ProfileViewController.swift */; };
 		C9A9CD46200ED63B000BE842 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD45200ED63B000BE842 /* FeedsViewController.swift */; };
 		C9A9CD48200EE841000BE842 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD47200EE841000BE842 /* LoginViewController.swift */; };
-		C9A9CD4C200EF78D000BE842 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD4A200EF78D000BE842 /* Profile.swift */; };
-		C9A9CD4D200EF78D000BE842 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD4B200EF78D000BE842 /* Feed.swift */; };
 		C9A9CD50200EF93F000BE842 /* FeedTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD4F200EF93F000BE842 /* FeedTableVIewCell.swift */; };
 		C9A9CD54200F01DC000BE842 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD53200F01DC000BE842 /* UIImageView+Extension.swift */; };
 		C9B5FF65200F8D2900FFF9DB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5FF64200F8D2900FFF9DB /* ProfileViewModel.swift */; };
@@ -73,13 +74,14 @@
 		C935B17D200B7DB10047C7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C96140F6201039D200C8450F /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		C961410720124A0C00C8450F /* AtomParcer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomParcer.swift; sourceTree = "<group>"; };
+		C961410A20124BED00C8450F /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		C961410B20124BED00C8450F /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		C961410E20124BFA00C8450F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C9A9CD3F200D9E64000BE842 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C9A9CD41200D9E82000BE842 /* OauthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthManager.swift; sourceTree = "<group>"; };
 		C9A9CD43200E0E8A000BE842 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C9A9CD45200ED63B000BE842 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
 		C9A9CD47200EE841000BE842 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		C9A9CD4A200EF78D000BE842 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = SOURCE_ROOT; };
-		C9A9CD4B200EF78D000BE842 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = SOURCE_ROOT; };
 		C9A9CD4F200EF93F000BE842 /* FeedTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableVIewCell.swift; sourceTree = "<group>"; };
 		C9A9CD53200F01DC000BE842 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		C9B5FF64200F8D2900FFF9DB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -204,8 +206,8 @@
 		C9A9CD49200EF773000BE842 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				C9A9CD4B200EF78D000BE842 /* Feed.swift */,
-				C9A9CD4A200EF78D000BE842 /* Profile.swift */,
+				C961410A20124BED00C8450F /* Feed.swift */,
+				C961410B20124BED00C8450F /* Profile.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A9CD47200EE841000BE842 /* LoginViewController.swift */,
+				C961410E20124BFA00C8450F /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -550,13 +553,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9A9CD48200EE841000BE842 /* LoginViewController.swift in Sources */,
+				C961410D20124BED00C8450F /* Profile.swift in Sources */,
 				C9A9CD50200EF93F000BE842 /* FeedTableVIewCell.swift in Sources */,
-				C9A9CD4D200EF78D000BE842 /* Feed.swift in Sources */,
 				C9A9CD46200ED63B000BE842 /* FeedsViewController.swift in Sources */,
+				C961410F20124BFA00C8450F /* LoginViewModel.swift in Sources */,
+				C961410C20124BED00C8450F /* Feed.swift in Sources */,
 				C935B15E200B7DB00047C7AA /* ViewController.swift in Sources */,
 				C9A9CD42200D9E82000BE842 /* OauthManager.swift in Sources */,
 				C9B5FF65200F8D2900FFF9DB /* ProfileViewModel.swift in Sources */,
-				C9A9CD4C200EF78D000BE842 /* Profile.swift in Sources */,
 				C9A9CD44200E0E8A000BE842 /* ProfileViewController.swift in Sources */,
 				C961410820124A0C00C8450F /* AtomParcer.swift in Sources */,
 				C96140F7201039D200C8450F /* APIClient.swift in Sources */,
