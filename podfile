@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'push-' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for push-
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'SWXMLHash' 
+ target 'push-Tests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'push-UITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
