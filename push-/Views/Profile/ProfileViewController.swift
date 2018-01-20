@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         initializeView()
         viewModel.delegate = self
-        viewModel.fetchProfile()
+        viewModel.state = .requestReady
     }
 }
 

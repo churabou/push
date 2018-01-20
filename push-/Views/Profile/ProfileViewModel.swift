@@ -3,23 +3,34 @@ import Alamofire
 import SwiftyJSON
 
 
+
 protocol ProfileViewModelDelegate {
-    
+     //MARK: - Events
     func didFetchProfile(_ profile: Profile)
 }
 
 class ProfileViewModel {
     
 
-//    MARK: - States
+    //MARK: - States
     enum ProfileViewState {
+        case requestReady
+        case requestSuccess(profile: Profile)
+        case requestFailed
+        case none
     }
     
     //MARK: - Properties
-    var token = ""
-    var profile: Profile? {
+    var state: ProfileViewState = .none {
         didSet {
-            delegate?.didFetchProfile(profile!)
+            switch state {
+            case .requestReady:
+                fetchProfile()
+            case .requestSuccess(let profile):
+                delegate?.didFetchProfile(profile)
+            default:
+                return
+            }
         }
     }
     
@@ -29,7 +40,7 @@ class ProfileViewModel {
 
     func fetchProfile() {
         APIClient.shared.fetchProfileRequest({ (profile) in
-            self.profile = profile
+            self.state = .requestSuccess(profile: profile)
         })
     }
 }

@@ -2,8 +2,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var isLogin = true
-    
     var viewModel = LoginViewModel()
     var webView = UIWebView()
     
@@ -19,7 +17,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         initializeView()
         viewModel.delegate = self
-        viewModel.isLogin = true
+        viewModel.state = .requestLogin(isLogin: true)
     }
     
     fileprivate func loadLoginView() {
@@ -48,8 +46,8 @@ extension LoginViewController: UIWebViewDelegate {
         guard let url = request.url?.absoluteString else { return true }
         
         if !url.contains("code") { return true }
-        
-        viewModel.code = String(url.split(separator: "=")[1])
+
+        viewModel.state = .requestReady(code: String(url.split(separator: "=")[1]))
         return true
     }
 }
@@ -65,8 +63,11 @@ extension LoginViewController: LoginViewModelDelegate {
         }
     }
     
-    func didFetchToken(_ token: String) {
+    func didLoginComplete() {
         presenView()
+    }
+    
+    func didLoginFailed() {
     }
 }
 

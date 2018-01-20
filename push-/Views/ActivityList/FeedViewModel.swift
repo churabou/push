@@ -10,16 +10,34 @@ class FeedViewModel {
     
     var delegate: FeedViewModelDelegate?
     
-    var feeds: [Feed] = [] {
+    var feeds: [Feed] = []
+    
+    enum FeedViewState {
+        case requestReady
+        case requestSuccess(feeds: [Feed])
+        case requestFailed
+        case none
+    }
+    
+    var state: FeedViewState = .none {
+        
         didSet {
-            delegate?.didFetchFeeds(feeds)
+            switch state {
+            case .requestReady:
+                fetchFeeds()
+            case .requestSuccess(let feeds):
+                self.feeds = feeds
+                delegate?.didFetchFeeds(feeds)
+            default:
+                return
+            }
         }
     }
     
     func fetchFeeds(){
         
         APIClient.shared.fetchFeedsRequest({ (feeds) in
-            self.feeds = feeds
+            self.state = .requestSuccess(feeds: feeds)
         })
     }
 }
