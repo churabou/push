@@ -9,7 +9,7 @@ struct GetProfileRequest: APIClientRequestType {
     
 
     public var method: HTTPMethod {
-        return .post
+        return .get
     }
     
     public var baseURL: String {
@@ -19,24 +19,15 @@ struct GetProfileRequest: APIClientRequestType {
     public var path: String {
         return "/user"
     }
-    
-    /*
-     X-Client-Signature: { value }
-     value=POSTボディ (applicaiton/x-www-formurlencoded 済み)を、shared secret をキーにして生成したHMAC-SHA256 ダイジェスト値
-     */
+
     public var headers: HTTPHeaders {
-        var headers: HTTPHeaders = [:]
+        let headers: HTTPHeaders = ["Authorization": "token \(Config.token)"]
         return headers
     }
     
-    var parameters: [String: String]? {
-        var param: [String: String] = [:]
-        param["access_token"] = Config.token
-        return param
-    }
-    
     public func responseFromObject(_ object: Any) -> ResponseType? {
-        guard let model = ResponseType.parce(json: object as! JSON) else {
+        let json = JSON(object)
+        guard let model = ResponseType.parce(json: json) else {
             return nil
         }
         return model
