@@ -11,11 +11,13 @@ class FeedViewModel {
     var delegate: FeedViewModelDelegate?
     
     var feeds: [Feed] = []
+    var isLoadImage = false
     
     enum FeedViewState {
         case requestReady
         case requestSuccess(feeds: [Feed])
         case requestFailed
+        case loadImage
         case none
     }
     

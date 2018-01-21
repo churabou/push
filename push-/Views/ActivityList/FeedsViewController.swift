@@ -20,7 +20,7 @@ class FeedsViewController: UIViewController {
     override func viewDidLoad() {
         initializeView()
         viewModel.delegate = self
-        viewModel.fetchFeeds()
+        viewModel.state = .requestReady
     }
 }
 
