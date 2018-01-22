@@ -25,7 +25,7 @@ class ActivityTableViewCell: UITableViewCell, NibLoadable, Reusable {
         }
     }
     
-    func setModel(feed: Feed) {
+    func setModel(feed: Activity) {
         iconView.loadImage(urlString: feed.icon)
         activityLabel.text = feed.title
         timeLabel.text = "★ 3days ago"

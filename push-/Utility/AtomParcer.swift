@@ -18,8 +18,8 @@ class AtomParcer: NSObject {
     }
     
     
-    var currentFeed = Feed()
-    var feeds: [Feed] = []
+    var currentFeed = Activity()
+    var feeds: [Activity] = []
     var tag: Tag = .other
     
     var isReadTitle = false
@@ -50,7 +50,7 @@ extension AtomParcer: XMLParserDelegate {
         
         switch elementName {
         case "entry":
-            currentFeed = Feed()
+            currentFeed = Activity()
         case "title":
             tag = .title
             isReadTitle = false

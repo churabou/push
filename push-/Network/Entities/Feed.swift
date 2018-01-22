@@ -1,10 +1,16 @@
 import Foundation
-import UIKit
+import SwiftyJSON
 
 struct Feed {
     
-    var icon = "https://avatars2.githubusercontent.com/u/29186796?s=30&amp;v=4"
-    var name = "bdistin"
-    var title = "qin9smile commented on issue mapbox/mapbox-gl-js#4702"
-    var iconImage = UIImage()
+    var timelineUrl = ""
+    
+    static func decode(json: JSON) -> Feed? {
+        guard let timelineUrl = json["timeline_url"].string else {
+            return nil
+        }
+        
+        return Feed(timelineUrl: timelineUrl)
+    }
 }
+

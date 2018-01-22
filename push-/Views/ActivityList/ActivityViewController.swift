@@ -54,7 +54,7 @@ extension ActivityViewController: UITableViewDataSource {
 
 extension ActivityViewController: ActivityViewModelDelegate {
     
-    func didFetchFeeds(_ feeds: [Feed]) {
+    func didFetchFeeds(_ feeds: [Activity]) {
         tableView.reloadData()
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.7, execute: {
