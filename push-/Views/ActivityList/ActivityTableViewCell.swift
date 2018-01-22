@@ -12,13 +12,22 @@ class ActivityTableViewCell: UITableViewCell, NibLoadable, Reusable {
         }
     }
     
-    @IBOutlet weak var activityLabel: UILabel!
+    @IBOutlet weak var activityLabel: UILabel! {
+        didSet {
+            activityLabel.numberOfLines = 0
+            activityLabel.font = UIFont.systemFont(ofSize: 12)
+        }
+    }
     
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel! {
+        didSet {
+            timeLabel.textColor = .darkGray
+        }
+    }
     
     func setModel(feed: Feed) {
         iconView.loadImage(urlString: feed.icon)
         activityLabel.text = feed.title
-        timeLabel.text = "days ago"
+        timeLabel.text = "★ 3days ago"
     }
 }

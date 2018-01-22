@@ -14,7 +14,6 @@ class ActivityViewController: UIViewController {
         tableView.frame = view.frame
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(ActivityTableViewCell.self)
         tableView.addSubview(refreshControll)
         view.addSubview(tableView)
@@ -45,12 +44,7 @@ extension ActivityViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? FeedTableViewCell else {
-//            return UITableViewCell()
-//        }
-//        cell.updateView(feed: viewModel.feeds[indexPath.row])
-        
+
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ActivityTableViewCell
         cell.setModel(feed: viewModel.feeds[indexPath.row])
         return cell

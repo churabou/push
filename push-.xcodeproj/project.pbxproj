@@ -31,7 +31,6 @@
 		C9A9CD42200D9E82000BE842 /* OauthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD41200D9E82000BE842 /* OauthManager.swift */; };
 		C9A9CD44200E0E8A000BE842 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD43200E0E8A000BE842 /* ProfileViewController.swift */; };
 		C9A9CD48200EE841000BE842 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD47200EE841000BE842 /* LoginViewController.swift */; };
-		C9A9CD50200EF93F000BE842 /* FeedTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD4F200EF93F000BE842 /* FeedTableVIewCell.swift */; };
 		C9A9CD54200F01DC000BE842 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD53200F01DC000BE842 /* UIImageView+Extension.swift */; };
 		C9B5FF65200F8D2900FFF9DB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5FF64200F8D2900FFF9DB /* ProfileViewModel.swift */; };
 		C9B5FF67200F935F00FFF9DB /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5FF66200F935F00FFF9DB /* ActivityViewModel.swift */; };
@@ -94,7 +93,6 @@
 		C9A9CD41200D9E82000BE842 /* OauthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthManager.swift; sourceTree = "<group>"; };
 		C9A9CD43200E0E8A000BE842 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C9A9CD47200EE841000BE842 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		C9A9CD4F200EF93F000BE842 /* FeedTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableVIewCell.swift; sourceTree = "<group>"; };
 		C9A9CD53200F01DC000BE842 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		C9B5FF64200F8D2900FFF9DB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		C9B5FF66200F935F00FFF9DB /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 			children = (
 				C9B5FF66200F935F00FFF9DB /* ActivityViewModel.swift */,
 				C958E3CE2015E7C7006F6AC3 /* ActivityViewController.swift */,
-				C9A9CD4F200EF93F000BE842 /* FeedTableVIewCell.swift */,
 				C958E3CA2015DBE1006F6AC3 /* ActivityTableViewCell.xib */,
 				C958E3CC2015DC31006F6AC3 /* ActivityTableViewCell.swift */,
 			);
@@ -595,7 +592,6 @@
 			files = (
 				C958E3CD2015DC31006F6AC3 /* ActivityTableViewCell.swift in Sources */,
 				C9A9CD48200EE841000BE842 /* LoginViewController.swift in Sources */,
-				C9A9CD50200EF93F000BE842 /* FeedTableVIewCell.swift in Sources */,
 				C94C9D722014218A00A25CA3 /* GetProfileRequest.swift in Sources */,
 				C961410F20124BFA00C8450F /* LoginViewModel.swift in Sources */,
 				C961410C20124BED00C8450F /* Feed.swift in Sources */,
