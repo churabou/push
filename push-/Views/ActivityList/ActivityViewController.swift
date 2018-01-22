@@ -3,9 +3,9 @@ import Alamofire
 import SwiftyJSON
 import SWXMLHash
 
-class FeedsViewController: UIViewController {
+class ActivityViewController: UIViewController {
     
-    var viewModel = FeedViewModel()
+    var viewModel = ActivityViewModel()
     var tableView = UITableView()
     var refreshControll = UIRefreshControl()
 
@@ -14,7 +14,8 @@ class FeedsViewController: UIViewController {
         tableView.frame = view.frame
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "cell")
+//        tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(ActivityTableViewCell.self)
         tableView.addSubview(refreshControll)
         view.addSubview(tableView)
     }
@@ -27,17 +28,17 @@ class FeedsViewController: UIViewController {
     }
 }
 
-extension FeedsViewController: UITableViewDelegate {
+extension ActivityViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return ActivityTableViewCell.defaultHeight
     }
 }
 
-extension FeedsViewController: UITableViewDataSource {
+extension ActivityViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.feeds.count
@@ -45,16 +46,19 @@ extension FeedsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? FeedTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.updateView(feed: viewModel.feeds[indexPath.row])
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? FeedTableViewCell else {
+//            return UITableViewCell()
+//        }
+//        cell.updateView(feed: viewModel.feeds[indexPath.row])
+        
+        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ActivityTableViewCell
+        cell.setModel(feed: viewModel.feeds[indexPath.row])
         return cell
     }
 }
 
 
-extension FeedsViewController: FeedViewModelDelegate {
+extension ActivityViewController: ActivityViewModelDelegate {
     
     func didFetchFeeds(_ feeds: [Feed]) {
         tableView.reloadData()

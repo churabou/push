@@ -2,13 +2,13 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-protocol FeedViewModelDelegate {
+protocol ActivityViewModelDelegate {
     func didFetchFeeds(_ feeds: [Feed])
 }
 
-class FeedViewModel {
+class ActivityViewModel {
     
-    var delegate: FeedViewModelDelegate?
+    var delegate: ActivityViewModelDelegate?
     
     var feeds: [Feed] = []
     var isLoadImage = false

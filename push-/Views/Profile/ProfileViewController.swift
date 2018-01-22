@@ -38,7 +38,7 @@ extension ProfileViewController: ProfileViewModelDelegate {
         nameLabel.text = "logging in as \(profile.name)"
         imageView.loadImage(urlString: profile.iconURL)
         
-        let c = FeedsViewController()
+        let c = ActivityViewController()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
             self.navigationController?.pushViewController(c, animated: true)
         })
