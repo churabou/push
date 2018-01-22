@@ -27,7 +27,7 @@ struct GetProfileRequest: APIClientRequestType {
     
     public func responseFromObject(_ object: Any) -> ResponseType? {
         let json = JSON(object)
-        guard let model = ResponseType.parce(json: json) else {
+        guard let model = ResponseType.decode(json: json) else {
             return nil
         }
         return model

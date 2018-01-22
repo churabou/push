@@ -12,16 +12,7 @@ class FeedTableViewCell: UITableViewCell {
         initializeView()
     }
     
-    var feed: Feed = Feed() {
-        
-        didSet {
-            iconView.loadImage(urlString: feed.icon)
-            activityLabel.text = feed.title
-            nameLabel.text = feed.name
-        }
-    }
-    
-    let height: CGFloat = 100
+    let height: CGFloat = 70
     var centerY: CGFloat {
         return height / 2
     }
@@ -45,5 +36,11 @@ class FeedTableViewCell: UITableViewCell {
         addSubview(activityLabel)
         
         addSubview(nameLabel)
+    }
+    
+    func updateView(feed: Feed) {
+        iconView.loadImage(urlString: feed.icon)
+        activityLabel.text = feed.title
+        nameLabel.text = feed.name
     }
 }

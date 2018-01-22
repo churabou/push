@@ -16,7 +16,7 @@ struct Profile: Codable {
         self.iconURL = json["avatar_url"].string!
     }
     
-    static func parce(json: JSON) -> Profile? {
+    static func decode(json: JSON) -> Profile? {
         guard let name = json["login"].string, let iconURL = json["avatar_url"].string else {
             return nil
         }
