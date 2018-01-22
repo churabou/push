@@ -25,6 +25,7 @@
 		C958E3CF2015E7C7006F6AC3 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C958E3CE2015E7C7006F6AC3 /* ActivityViewController.swift */; };
 		C958E3D12015EBB3006F6AC3 /* GetFeedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C958E3D02015EBB3006F6AC3 /* GetFeedRequest.swift */; };
 		C958E3D32015ECD7006F6AC3 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C958E3D22015ECD7006F6AC3 /* Feed.swift */; };
+		C958E3D72015F904006F6AC3 /* OauthTokenPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C958E3D62015F904006F6AC3 /* OauthTokenPostRequest.swift */; };
 		C96140F7201039D200C8450F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96140F6201039D200C8450F /* APIClient.swift */; };
 		C961410820124A0C00C8450F /* AtomParcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961410720124A0C00C8450F /* AtomParcer.swift */; };
 		C961410C20124BED00C8450F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961410A20124BED00C8450F /* Activity.swift */; };
@@ -89,6 +90,7 @@
 		C958E3CE2015E7C7006F6AC3 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		C958E3D02015EBB3006F6AC3 /* GetFeedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFeedRequest.swift; sourceTree = "<group>"; };
 		C958E3D22015ECD7006F6AC3 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		C958E3D62015F904006F6AC3 /* OauthTokenPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthTokenPostRequest.swift; sourceTree = "<group>"; };
 		C96140F6201039D200C8450F /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		C961410720124A0C00C8450F /* AtomParcer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomParcer.swift; sourceTree = "<group>"; };
 		C961410A20124BED00C8450F /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				C94C9D712014218A00A25CA3 /* GetProfileRequest.swift */,
 				C958E3D02015EBB3006F6AC3 /* GetFeedRequest.swift */,
+				C958E3D62015F904006F6AC3 /* OauthTokenPostRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				C961410820124A0C00C8450F /* AtomParcer.swift in Sources */,
 				C9FD49FF2015D76F00944BB3 /* NibLoadable.swift in Sources */,
 				C96140F7201039D200C8450F /* APIClient.swift in Sources */,
+				C958E3D72015F904006F6AC3 /* OauthTokenPostRequest.swift in Sources */,
 				C935B15C200B7DB00047C7AA /* AppDelegate.swift in Sources */,
 				C958E3D12015EBB3006F6AC3 /* GetFeedRequest.swift in Sources */,
 				C9A9CD54200F01DC000BE842 /* UIImageView+Extension.swift in Sources */,

@@ -13,7 +13,6 @@ class APIClient {
     
     static let shared = APIClient()
     
-    
     func send<T: APIClientRequestType>(request: T, completion: @escaping (APIResponse<T.ResponseType>) -> Void) {
         
         let query = Alamofire.request(
