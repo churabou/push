@@ -5,7 +5,7 @@ import SWXMLHash
 
 class ActivityViewController: UIViewController {
     
-    var viewModel = ActivityViewModel()
+    let viewModel = ActivityViewModel()
     var tableView = UITableView()
     var refreshControll = UIRefreshControl()
 
@@ -21,9 +21,27 @@ class ActivityViewController: UIViewController {
 
     override func viewDidLoad() {
         initializeView()
-        refreshControll.beginRefreshing()
-        viewModel.delegate = self
-        viewModel.state = .requestReady
+        viewModel.fetchActivities()
+        bindToViewModel()
+    }
+    
+    func bindToViewModel() {
+        
+        viewModel.activitiesDidSet = { activities in
+            self.tableView.reloadData()
+        }
+        
+        viewModel.isLoadingDidSet = { isLoading in
+            if isLoading {
+                print("is loading")
+                self.refreshControll.beginRefreshing()
+            } else {
+                          print("finish loading")
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.7, execute: {
+                    self.refreshControll.endRefreshing()
+                })
+            }
+        }
     }
 }
 
@@ -40,26 +58,14 @@ extension ActivityViewController: UITableViewDelegate {
 extension ActivityViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.feeds.count
+        return viewModel.activities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
 
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ActivityTableViewCell
-        cell.setModel(feed: viewModel.feeds[indexPath.row])
+        cell.setModel(feed: viewModel.activities[indexPath.row])
         return cell
-    }
-}
-
-
-extension ActivityViewController: ActivityViewModelDelegate {
-    
-    func didFetchFeeds(_ feeds: [Activity]) {
-        tableView.reloadData()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.7, execute: {
-            self.refreshControll.endRefreshing()
-        })
     }
 }
 

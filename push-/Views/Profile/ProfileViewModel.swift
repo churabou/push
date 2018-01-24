@@ -11,40 +11,37 @@ protocol ProfileViewModelDelegate {
 
 class ProfileViewModel {
     
-
-    //MARK: - States
-    enum ProfileViewState {
-        case requestReady
-        case requestSuccess(profile: Profile)
-        case requestFailed
-        case none
-    }
-    
-    //MARK: - Properties
-    var state: ProfileViewState = .none {
+    //MARK: Observe Properties
+    var isLoading = false {
         didSet {
-            switch state {
-            case .requestReady:
-                fetchProfile()
-            case .requestSuccess(let profile):
-                delegate?.didFetchProfile(profile)
-            default:
-                return
-            }
+            isLoadingDidSet?(isLoading)
         }
     }
     
-    var delegate: ProfileViewModelDelegate?
-    
+    var profile = Profile() {
+        didSet {
+            profileDidSet?(profile)
+        }
+    }
+
+    var error = "" {
+        didSet {
+            errorDidSet?(error)
+        }
+    }
+
+    //MARK: Event
+    var isLoadingDidSet:((Bool) -> Swift.Void)?
+    var profileDidSet: ((Profile) -> Swift.Void)?
+    var errorDidSet: ((String) -> Swift.Void)?
+
     //MARK: - Actions
-
-
     func fetchProfile() {
         let reqest = GetProfileRequest()
         APIClient.shared.send(request: reqest, completion: { res in
             switch res {
             case .success(_, let profile):
-                 self.state = .requestSuccess(profile: profile)
+                 self.profile = profile
             case .failure(_, let message):
                 print(message)
             }

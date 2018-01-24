@@ -2,11 +2,11 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    private var imageView = UIImageView()
-    private var nameLabel = UILabel()
-    private var viewModel = ProfileViewModel()
+    fileprivate var imageView = UIImageView()
+    fileprivate var nameLabel = UILabel()
+    fileprivate let viewModel = ProfileViewModel()
     
-    private func initializeView() {
+    fileprivate func initializeView() {
         
         view.backgroundColor = UIColor(white: 0.8, alpha: 1/0)
         
@@ -26,21 +26,22 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         initializeView()
-        viewModel.delegate = self
-        viewModel.state = .requestReady
+        viewModel.fetchProfile()
+        bindToViewModel()
     }
-}
-
-extension ProfileViewController: ProfileViewModelDelegate {
     
-    func didFetchProfile(_ profile: Profile) {
+    
+    fileprivate func bindToViewModel() {
         
-        nameLabel.text = "logging in as \(profile.name)"
-        imageView.loadImage(urlString: profile.iconURL)
-        
-        let c = ActivityViewController()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-            self.navigationController?.pushViewController(c, animated: true)
-        })
+        viewModel.profileDidSet = { profile in
+
+            self.nameLabel.text = "logging in as \(profile.name)"
+            self.imageView.loadImage(urlString: profile.iconURL)
+            
+            let c = ActivityViewController()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.navigationController?.pushViewController(c, animated: true)
+            })
+        }
     }
 }

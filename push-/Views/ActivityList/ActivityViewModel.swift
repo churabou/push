@@ -2,51 +2,49 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-protocol ActivityViewModelDelegate {
-    func didFetchFeeds(_ feeds: [Activity])
-}
 
 class ActivityViewModel {
     
-    var delegate: ActivityViewModelDelegate?
-    
-    var feeds: [Activity] = []
-    var isLoadImage = false
-    
-    enum FeedViewState {
-        case requestReady
-        case requestSuccess(feeds: [Activity])
-        case requestFailed
-        case loadImage
-        case none
-    }
-    
-    var state: FeedViewState = .none {
-        
+
+    var activities: [Activity] = [] {
         didSet {
-            switch state {
-            case .requestReady:
-                fetchFeeds()
-            case .requestSuccess(let feeds):
-                self.feeds = feeds
-                delegate?.didFetchFeeds(feeds)
-            default:
-                return
-            }
+            activitiesDidSet?(activities)
+        }
+    }
+
+    var error = "" {
+        didSet {
+            errorDidSet?(error)
         }
     }
     
-    func fetchFeeds(){
+    var isLoading = false {
+        didSet {
+            isLoadingDidSet?(isLoading)
+        }
+    }
+    
+    //MARK: Events
+    var isLoadingDidSet:((Bool) -> Swift.Void)?
+    var activitiesDidSet: (([Activity]) -> Swift.Void)?
+    var errorDidSet: ((String) -> Swift.Void)?
+    
+    
+    //MARK: Action
 
+    func fetchActivities(){
+        self.isLoading = true
         let request = GetFeedRequest()
         APIClient.shared.send(request: request, completion: { (response) in
             
             switch response {
             case .success(_, let feed):
+                self.isLoading = false
                 let p = AtomParcer()
                 p.parseXML(feed.timelineUrl)
-                self.state = .requestSuccess(feeds: p.feeds)
+                self.activities = p.feeds
             case .failure(_, let message):
+                self.isLoading = false
                 print("failed \(message)")
             }
         })
