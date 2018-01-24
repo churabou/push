@@ -21,6 +21,7 @@ class ActivityViewController: UIViewController {
 
     override func viewDidLoad() {
         initializeView()
+        self.refreshControll.beginRefreshing()
         viewModel.fetchActivities()
         bindToViewModel()
     }
@@ -36,7 +37,7 @@ class ActivityViewController: UIViewController {
                 print("is loading")
                 self.refreshControll.beginRefreshing()
             } else {
-                          print("finish loading")
+                print("finish loading")
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.7, execute: {
                     self.refreshControll.endRefreshing()
                 })
@@ -68,5 +69,3 @@ extension ActivityViewController: UITableViewDataSource {
         return cell
     }
 }
-
-

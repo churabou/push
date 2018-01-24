@@ -30,6 +30,7 @@
 		C961410820124A0C00C8450F /* AtomParcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961410720124A0C00C8450F /* AtomParcer.swift */; };
 		C961410C20124BED00C8450F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961410A20124BED00C8450F /* Activity.swift */; };
 		C961410F20124BFA00C8450F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961410E20124BFA00C8450F /* LoginViewModel.swift */; };
+		C97FECEF2018402400120663 /* ActivityTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97FECEE2018402400120663 /* ActivityTableView.swift */; };
 		C9A9CD40200D9E64000BE842 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD3F200D9E64000BE842 /* Config.swift */; };
 		C9A9CD42200D9E82000BE842 /* OauthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD41200D9E82000BE842 /* OauthManager.swift */; };
 		C9A9CD44200E0E8A000BE842 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9CD43200E0E8A000BE842 /* ProfileViewController.swift */; };
@@ -95,6 +96,7 @@
 		C961410720124A0C00C8450F /* AtomParcer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomParcer.swift; sourceTree = "<group>"; };
 		C961410A20124BED00C8450F /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		C961410E20124BFA00C8450F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		C97FECEE2018402400120663 /* ActivityTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableView.swift; sourceTree = "<group>"; };
 		C9A9CD3F200D9E64000BE842 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C9A9CD41200D9E82000BE842 /* OauthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthManager.swift; sourceTree = "<group>"; };
 		C9A9CD43200E0E8A000BE842 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,16 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		C97FECF02018402E00120663 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C97FECEE2018402400120663 /* ActivityTableView.swift */,
+				C958E3CA2015DBE1006F6AC3 /* ActivityTableViewCell.xib */,
+				C958E3CC2015DC31006F6AC3 /* ActivityTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C9A9CD49200EF773000BE842 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,8 +263,7 @@
 			children = (
 				C9B5FF66200F935F00FFF9DB /* ActivityViewModel.swift */,
 				C958E3CE2015E7C7006F6AC3 /* ActivityViewController.swift */,
-				C958E3CA2015DBE1006F6AC3 /* ActivityTableViewCell.xib */,
-				C958E3CC2015DC31006F6AC3 /* ActivityTableViewCell.swift */,
+				C97FECF02018402E00120663 /* View */,
 			);
 			path = ActivityList;
 			sourceTree = "<group>";
@@ -603,6 +614,7 @@
 				C958E3D32015ECD7006F6AC3 /* Feed.swift in Sources */,
 				C9A9CD48200EE841000BE842 /* LoginViewController.swift in Sources */,
 				C94C9D722014218A00A25CA3 /* GetProfileRequest.swift in Sources */,
+				C97FECEF2018402400120663 /* ActivityTableView.swift in Sources */,
 				C961410F20124BFA00C8450F /* LoginViewModel.swift in Sources */,
 				C961410C20124BED00C8450F /* Activity.swift in Sources */,
 				C9FD4A002015D76F00944BB3 /* Reusable.swift in Sources */,
