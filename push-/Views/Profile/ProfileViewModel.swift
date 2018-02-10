@@ -1,13 +1,5 @@
 import Foundation
-import Alamofire
-import SwiftyJSON
 
-
-
-protocol ProfileViewModelDelegate {
-     //MARK: - Events
-    func didFetchProfile(_ profile: Profile)
-}
 
 class ProfileViewModel {
     

@@ -1,7 +1,5 @@
 import UIKit
-import Alamofire
-import SwiftyJSON
-import SWXMLHash
+
 
 class ActivityViewController: UIViewController {
     

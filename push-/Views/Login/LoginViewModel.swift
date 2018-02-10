@@ -23,6 +23,7 @@ class LoginViewModel {
     var state: LoginViewState = .none {
         
         didSet {
+            //var stateDidSet: ((LoginViewState) -> Swift.Void)?
             switch state {
             case .requestLogin(let isLogin):
                 delegate?.requestLogin(isLogin)
@@ -33,6 +34,8 @@ class LoginViewModel {
             }
         }
     }
+    
+    //var stateDidSet: ((LoginViewState) -> Swift.Void)?
     
     
     func featchToken(code: String) {

@@ -1,6 +1,6 @@
 import Foundation
 import Alamofire
-import SwiftyJSON
+//import SwiftyJSON
 
 
 public enum APIResponse<ResponseType> {
