@@ -3,18 +3,19 @@ import Foundation
 class AtomParcer: NSObject {
     
     
-    func parseXML(_ url_text: String) {
+    func getActivity(_ url_text: String) -> [Activity] {
         
         guard let url = NSURL(string: url_text) else{
-            return
+            return []
         }
         
         // インターネット上のXMLを取得し、NSXMLParserに読み込む
         guard let parser = XMLParser(contentsOf: url as URL) else{
-            return
+            return []
         }
         parser.delegate = self
         parser.parse()
+        return feeds
     }
     
     

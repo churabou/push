@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         initializeView()
         viewModel.delegate = self
-        viewModel.state = .requestLogin(isLogin: true)
+        viewModel.state = .requestLogin(isLogin: false)
     }
     
     fileprivate func loadLoginView() {

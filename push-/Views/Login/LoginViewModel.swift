@@ -43,6 +43,7 @@ class LoginViewModel {
         OauthManager.getToken(code: String(code), completion: { token in
             if !token.isEmpty {
                 
+                Config.token = token
                 self.delegate?.didLoginComplete()
             }
         })

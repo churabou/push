@@ -6,6 +6,13 @@ class ActivityViewController: UIViewController {
     let viewModel = ActivityViewModel()
     var tableView = UITableView()
     var refreshControll = UIRefreshControl()
+    var reachedBottom = false {
+        didSet {
+            reachedBottomDidSet?(reachedBottom)
+        }
+    }
+    
+    var reachedBottomDidSet: ((Bool) -> ())?
 
     func initializeView() {
         
@@ -20,7 +27,7 @@ class ActivityViewController: UIViewController {
     override func viewDidLoad() {
         initializeView()
         self.refreshControll.beginRefreshing()
-        viewModel.fetchActivities()
+        viewModel.fetchFeeds()
         bindToViewModel()
     }
     
@@ -28,6 +35,7 @@ class ActivityViewController: UIViewController {
         
         viewModel.activitiesDidSet = { activities in
             self.tableView.reloadData()
+            self.viewModel.isLoading = false
         }
         
         viewModel.isLoadingDidSet = { isLoading in
@@ -39,6 +47,12 @@ class ActivityViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.7, execute: {
                     self.refreshControll.endRefreshing()
                 })
+            }
+        }
+        
+        reachedBottomDidSet = { reachedBottom in
+            if reachedBottom {
+                self.viewModel.loadMore()
             }
         }
     }
@@ -54,9 +68,21 @@ extension ActivityViewController: UITableViewDelegate {
     }
 }
 
+extension ActivityViewController: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        let visibleHeight = scrollView.frame.height - scrollView.contentInset.top - scrollView.contentInset.bottom
+        let y = scrollView.contentOffset.y + scrollView.contentInset.top
+        let threshold = max(0.0, scrollView.contentSize.height - visibleHeight)
+        reachedBottom = y + 10 > threshold
+    }
+}
+
 extension ActivityViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(viewModel.activities.count)
         return viewModel.activities.count
     }
     

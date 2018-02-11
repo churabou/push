@@ -8,3 +8,13 @@ struct Activity {
     var title = "qin9smile commented on issue mapbox/mapbox-gl-js#4702"
     var iconImage = UIImage()
 }
+
+//- tableView Reached Bottomの判定 ページネーション
+//- ログイン、api周りの整備
+//
+//- error
+//
+//extr
+//-　メニュービュー
+//- アニメーション
+

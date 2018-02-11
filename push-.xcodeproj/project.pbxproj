@@ -40,7 +40,6 @@
 		C9B5FF67200F935F00FFF9DB /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5FF66200F935F00FFF9DB /* ActivityViewModel.swift */; };
 		C9FD49FF2015D76F00944BB3 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD49FC2015D76F00944BB3 /* NibLoadable.swift */; };
 		C9FD4A002015D76F00944BB3 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD49FD2015D76F00944BB3 /* Reusable.swift */; };
-		C9FD4A012015D76F00944BB3 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD49FE2015D76F00944BB3 /* StoryboardInstantiable.swift */; };
 		C9FD4A032015D77F00944BB3 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD4A022015D77E00944BB3 /* UITableView+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +105,6 @@
 		C9B5FF66200F935F00FFF9DB /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		C9FD49FC2015D76F00944BB3 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		C9FD49FD2015D76F00944BB3 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		C9FD49FE2015D76F00944BB3 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		C9FD4A022015D77E00944BB3 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		E314F7A8D68B932814D94DFA /* Pods-push-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-push-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-push-Tests/Pods-push-Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -310,7 +308,6 @@
 			children = (
 				C9FD49FC2015D76F00944BB3 /* NibLoadable.swift */,
 				C9FD49FD2015D76F00944BB3 /* Reusable.swift */,
-				C9FD49FE2015D76F00944BB3 /* StoryboardInstantiable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -619,7 +616,6 @@
 				C961410C20124BED00C8450F /* Activity.swift in Sources */,
 				C9FD4A002015D76F00944BB3 /* Reusable.swift in Sources */,
 				C935B15E200B7DB00047C7AA /* ViewController.swift in Sources */,
-				C9FD4A012015D76F00944BB3 /* StoryboardInstantiable.swift in Sources */,
 				C94C9D7520142C7200A25CA3 /* Profile.swift in Sources */,
 				C9A9CD42200D9E82000BE842 /* OauthManager.swift in Sources */,
 				C9FD4A032015D77F00944BB3 /* UITableView+Extension.swift in Sources */,
