@@ -71,7 +71,7 @@ extension ActivityViewController: UITableViewDelegate {
 extension ActivityViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
+        //TODO: リクエストするタイミングの調整
         let visibleHeight = scrollView.frame.height - scrollView.contentInset.top - scrollView.contentInset.bottom
         let y = scrollView.contentOffset.y + scrollView.contentInset.top
         let threshold = max(0.0, scrollView.contentSize.height - visibleHeight)
@@ -82,7 +82,6 @@ extension ActivityViewController: UIScrollViewDelegate {
 extension ActivityViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.activities.count)
         return viewModel.activities.count
     }
     

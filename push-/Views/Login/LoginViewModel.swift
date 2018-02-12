@@ -7,6 +7,7 @@ protocol LoginViewModelDelegate {
     func didLoginFailed()
 }
 
+//requestLogin -> 判定 -> webView表示 -> リダイレクトの値でリクエスト -> complete
 class LoginViewModel {
     
     var delegate: LoginViewModelDelegate?
@@ -15,7 +16,7 @@ class LoginViewModel {
         
         case requestLogin(isLogin: Bool)
         case requestReady(code: String)
-        case loginComplete(token: String)
+        case loginComplete
         case loginFailed
         case none
     }
@@ -34,6 +35,7 @@ class LoginViewModel {
             }
         }
     }
+    
     
     //var stateDidSet: ((LoginViewState) -> Swift.Void)?
     

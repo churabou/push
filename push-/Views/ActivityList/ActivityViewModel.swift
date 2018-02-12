@@ -3,7 +3,6 @@ import Foundation
 
 class ActivityViewModel {
     
-
     fileprivate var timeLineUrl = ""
     fileprivate var currentPage = 1
     
@@ -65,13 +64,10 @@ class ActivityViewModel {
     }
     
     func loadMore() {
-        if isLoading {
-            return
-        }
+        if isLoading { return }
         isLoading = true
         let p = AtomParcer()
         let urlString = timeLineUrl+"?page=\(currentPage)"
-        
         let result = p.getActivity(urlString)
 
         if result.isEmpty {

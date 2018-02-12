@@ -30,8 +30,8 @@ class ProfileViewModel {
     //MARK: - Actions
     func fetchProfile() {
         let reqest = GetProfileRequest()
-        APIClient.shared.send(request: reqest, completion: { res in
-            switch res {
+        APIClient.shared.send(request: reqest, completion: { response in
+            switch response {
             case .success(_, let profile):
                  self.profile = profile
             case .failure(_, let message):

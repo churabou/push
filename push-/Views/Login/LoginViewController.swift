@@ -3,12 +3,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var viewModel = LoginViewModel()
-    var webView = UIWebView()
+    fileprivate var viewModel = LoginViewModel()
+    fileprivate var webView = UIWebView()
     
-    func initializeView() {
+    fileprivate func initializeView() {
         title = "login"
-        view.backgroundColor = .red
         webView.frame = view.bounds
         webView.delegate = self
         view.addSubview(webView)
@@ -23,7 +22,7 @@ class LoginViewController: UIViewController {
     
     fileprivate func loadLoginView() {
         
-        let client_id = "3b4c1dac674c96b2b7db"
+        let client_id = Config.client_id
         guard let url =  URL(string: "https://github.com/login/oauth/authorize?client_id=\(client_id)") else {
             return
         }
@@ -44,10 +43,9 @@ extension LoginViewController: UIWebViewDelegate {
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
+        //TODO: ロジックがここにあるのは不自然
         guard let url = request.url?.absoluteString else { return true }
-        
         if !url.contains("code") { return true }
-
         viewModel.state = .requestReady(code: String(url.split(separator: "=")[1]))
         return true
     }
