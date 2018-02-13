@@ -11,7 +11,7 @@ class SideMenuController: UIViewController {
     let baseView = SideMenuView()
     
     override func viewDidLoad() {
-        baseView.backgroundColor = .blue
+        baseView.backgroundColor = .blackTheme
         print(view.frame)
         baseView.frame = view.frame
         baseView.delegate = self
@@ -39,7 +39,6 @@ class SideMenuView: UIView {
         let t = UITableView()
         t.delegate = self
         t.dataSource = self
-        t.backgroundColor = .red
         return t
     }()
     
@@ -87,7 +86,6 @@ extension SideMenuView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        cell.backgroundColor = .red
         cell.textLabel?.textAlignment = .right
         cell.textLabel?.text = menus[indexPath.row]
         return cell
