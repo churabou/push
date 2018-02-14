@@ -4,12 +4,29 @@ import SwiftyJSON
 
 
 struct Repository {
-    var name = ""
+    var name: String
+    var star: Int
+    var fork: Int
+    
+    static func decode(_ object: Any) -> Repository? {
+        
+        guard let dic = object as? [String: Any] else {
+            return nil
+        }
+        
+        if let name = dic["name"] as? String,
+            let star = dic["stargazers_count"] as? Int,
+            let fork = dic["forks_count"] as? Int {
+            return Repository(name: name, star: star, fork: fork)
+        } else {
+            return nil
+        }
+    }
 }
 
 struct GetRepositoryRequest: APIClientRequestType {
     
-    public typealias ResponseType = Repository
+    public typealias ResponseType = [Repository]
     
     public var method: HTTPMethod {
         return .get
@@ -24,17 +41,17 @@ struct GetRepositoryRequest: APIClientRequestType {
     }
     
     public var headers: HTTPHeaders {
-        let headers: HTTPHeaders = ["Authorization": "token \(Config.token)"]
+        let headers: HTTPHeaders = ["Authorization": "token \(Config.token)", "Content-type": "application/json"]
         return headers
     }
     
     public func responseFromObject(_ object: Any) -> ResponseType? {
-        return nil
-//        let json = JSON(object)
-//        guard let model = ResponseType.decode(json: json) else {
-//            return nil
-//        }
-//        return model
+
+        if let ary = object as? [Any] {
+            return ary.map { Repository.decode($0)! }
+        } else {
+            return nil
+        }
     }
 }
 

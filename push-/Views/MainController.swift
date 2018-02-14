@@ -74,7 +74,7 @@ extension MainController: SideMenuDelegate {
         case 1: c.view.backgroundColor = .yellow
         case 2: c = ActivityViewController()
         case 3: c.view.backgroundColor = .cyan
-        case 4: c.view.backgroundColor = .white
+        case 4: c = RLController()
         case 5: c.view.backgroundColor = .black
         default: return
         }

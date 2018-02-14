@@ -27,6 +27,19 @@ class RLView: UIView {
     func update() {
         tableView.reloadData()
     }
+    
+    override func draw(_ rect: CGRect) {
+        setFrame()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initializeView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension RLView: UITableViewDelegate {
@@ -50,6 +63,8 @@ extension RLView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = UITableViewCell()
+        cell.textLabel?.text = viewModel?.repositories[indexPath.row].name
+        return cell
     }
 }

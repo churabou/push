@@ -42,8 +42,10 @@ class ActivityViewController: UIViewController {
             if isLoading {
                 print("is loading")
                 self.refreshControll.beginRefreshing()
+                HUD.show()
             } else {
                 print("finish loading")
+                HUD.hide()
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.7, execute: {
                     self.refreshControll.endRefreshing()
                 })

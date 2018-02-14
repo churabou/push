@@ -36,12 +36,11 @@ class RLViewModel {
         self.isLoading = true
         let request = GetRepositoryRequest()
         APIClient.shared.send(request: request, completion: { (response) in
-            
+            self.isLoading = false
             switch response {
-            case .success(_, let repository):
-                print("aaa")
+            case .success(_, let repositories):
+                self.repositories = repositories
             case .failure(_, let message):
-                self.isLoading = false
                 print("failed \(message)")
             }
         })
