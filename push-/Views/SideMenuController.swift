@@ -34,9 +34,10 @@ protocol SideMenuViewDelegate: class {
 class SideMenuView: UIView {
     
     weak var delegate: SideMenuViewDelegate?
-    fileprivate let menus = ["profie", "event", "public timeline", "search", "repository", "activity"] 
+    fileprivate let menus = ["profie", "news", "public-timeline", "event", "repository"]
     fileprivate lazy var tableView: UITableView = {
         let t = UITableView()
+        t.backgroundColor = .blackTheme
         t.delegate = self
         t.dataSource = self
         return t

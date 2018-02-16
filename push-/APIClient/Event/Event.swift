@@ -1,11 +1,3 @@
-//
-//  Event.swift
-//  push-
-//
-//  Created by ちゅーたつ on 2018/02/16.
-//  Copyright © 2018年 ちゅーたつ. All rights reserved.
-//
-
 import Foundation
 
 private struct Repo {
@@ -21,30 +13,10 @@ private struct Repo {
     }
 }
 
-private struct Actor {
-
-    var login: String
-    var iconURL: String
-    
-    init(_ dic: [String: Any]) {
-
-        guard let login = dic["login"] as? String else {
-            fatalError("")
-        }
-        
-        guard let iconURL = dic["avatar_url"] as? String else {
-            fatalError("aa")
-        }
-        
-        self.login = login
-        self.iconURL = iconURL
-    }
-}
-
 struct Event {
     
     var type: String
-    var iconURL: String
+    var user: User
     var repoName: String
     
     init(_ object: Any) {
@@ -66,20 +38,29 @@ struct Event {
         }
         
         self.type = type
-        self.iconURL = Actor(actor).iconURL
+        self.user = User.decode(actor)
         self.repoName = Repo(repo).name
     }
 
     
     static func map(_ object: Any) {
-        
-        
+
         guard let ary = object as? [Any] else {
             fatalError("辞書変換失敗")
         }
         
         let result = ary.map { Event($0) }
         
-        result.forEach { print($0.repoName) }
+        result.forEach {
+            print($0.displayedString)
+        }
+    }
+    
+    var displayedString: String {
+        
+        var str = ""
+        str += user.name
+        str += " \(type) \(repoName) "
+        return str
     }
 }
