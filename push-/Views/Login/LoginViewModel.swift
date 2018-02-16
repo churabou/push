@@ -39,15 +39,5 @@ class LoginViewModel {
     
     //var stateDidSet: ((LoginViewState) -> Swift.Void)?
     
-    
-    func featchToken(code: String) {
-        
-        OauthManager.getToken(code: String(code), completion: { token in
-            if !token.isEmpty {
-                
-                Config.token = token
-                self.delegate?.didLoginComplete()
-            }
-        })
-    }
+
 }

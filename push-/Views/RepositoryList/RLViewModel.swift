@@ -35,7 +35,7 @@ class RLViewModel {
     func fetchRepository(){
         self.isLoading = true
         let request = GetRepositoryRequest()
-        APIClient.shared.send(request: request, completion: { (response) in
+            GithubSession.send(request: request, completion: { (response) in
             self.isLoading = false
             switch response {
             case .success(_, let repositories):

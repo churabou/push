@@ -56,6 +56,8 @@ extension RLView: UITableViewDataSource {
     
     func  tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        print("aaa")
+        print(viewModel?.repositories)
         if let count = viewModel?.repositories.count {
             return count
         }

@@ -22,6 +22,7 @@ class OauthManager {
         
         let task:URLSessionDataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data,response,error) -> Void in
             
+            print("実は毎回してました")
             let resultData = String(data: data!, encoding: .utf8)!
             print("result:\(resultData)")
             if resultData.prefix(7) == "access_" {

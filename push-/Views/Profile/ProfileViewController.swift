@@ -27,8 +27,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         initializeView()
-        viewModel.fetchProfile()
         bindToViewModel()
+        viewModel.fetchProfile()
     }
     
     
@@ -38,11 +38,14 @@ class ProfileViewController: UIViewController {
 
             self.nameLabel.text = "logging in as \(profile.name)"
             self.imageView.loadImage(urlString: profile.iconURL)
-            
-            let c = ActivityViewController()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.navigationController?.pushViewController(c, animated: true)
-            })
+            self.present()
         }
+    }
+    
+    fileprivate func present()  {
+        let c = MainController()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            self.navigationController?.pushViewController(c, animated: true)
+        })
     }
 }

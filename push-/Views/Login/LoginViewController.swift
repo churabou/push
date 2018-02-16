@@ -3,7 +3,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    fileprivate var viewModel = LoginViewModel()
     fileprivate var webView = UIWebView()
     
     fileprivate func initializeView() {
@@ -16,8 +15,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeView()
-        viewModel.delegate = self
-        viewModel.state = .requestLogin(isLogin: false)
+        loadLoginView()
     }
     
     fileprivate func loadLoginView() {
@@ -36,6 +34,18 @@ class LoginViewController: UIViewController {
         let n = UINavigationController(rootViewController: c)
         self.present(n, animated: true, completion: nil)
     }
+    
+    //リダイレクトで受け取ったcodeを使ってTokenを取得する
+    fileprivate func featchToken(code: String) {
+
+        OauthManager.getToken(code: String(code), completion: { token in
+            if !token.isEmpty {
+
+                Config.token = token
+                self.presenView()
+            }
+        })
+    }
 }
 
 
@@ -43,30 +53,11 @@ extension LoginViewController: UIWebViewDelegate {
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
-        //TODO: ロジックがここにあるのは不自然
         guard let url = request.url?.absoluteString else { return true }
         if !url.contains("code") { return true }
-        viewModel.state = .requestReady(code: String(url.split(separator: "=")[1]))
+        let code = String(url.split(separator: "=")[1])
+        featchToken(code: code)
         return true
-    }
-}
-
-extension LoginViewController: LoginViewModelDelegate {
-    
-    func requestLogin(_ isLogin: Bool) {
-        
-        if isLogin {
-            presenView()
-        } else {
-            loadLoginView()
-        }
-    }
-    
-    func didLoginComplete() {
-        presenView()
-    }
-    
-    func didLoginFailed() {
     }
 }
 

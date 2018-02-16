@@ -26,7 +26,6 @@ class HUD: UIViewController {
         controller?.present(c, animated: false, completion: {
             c.indicator.startAnimating()
         })
-        
     }
     
     class func hide() {

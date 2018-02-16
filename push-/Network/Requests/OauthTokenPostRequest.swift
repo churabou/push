@@ -42,16 +42,16 @@ struct OauthTokenPostRequest: APIClientRequestType {
         return params
     }
     
-//    public func responseFromObject(_ object: Any) -> String? {
-//        
+    public func responseFromObject(_ object: Any) -> String? {
+        
+        print(object)
+        print("おおおおお")
+        print(String(describing: object))
+//        let resultData = String(data: data!, encoding: .utf8)!
 //        if resultData.prefix(7) == "access_" {
 //            let token = resultData.split(separator: "=")[1].split(separator: "&")[0]
-//            completion(String(token))
+//            return String(token)
 //        }
-//        let json = JSON(object)
-//        guard let model = ResponseType.decode(json: json) else {
-//            return nil
-//        }
-//        return model
-//    }
+        return nil
+    }
 }

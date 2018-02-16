@@ -76,5 +76,4 @@ class ActivityViewModel {
             activities += result
         }
     }
-    
 }

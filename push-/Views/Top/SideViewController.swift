@@ -34,7 +34,7 @@ protocol SideMenuViewDelegate: class {
 class SideMenuView: UIView {
     
     weak var delegate: SideMenuViewDelegate?
-    fileprivate let menus = ["profie", "repository", "activity", "search", "repository", "activity"] 
+    fileprivate let menus = ["profie", "event", "public timeline", "search", "repository", "activity"] 
     fileprivate lazy var tableView: UITableView = {
         let t = UITableView()
         t.delegate = self
@@ -46,17 +46,16 @@ class SideMenuView: UIView {
         addSubview(tableView)
     }
     
+    override func draw(_ rect: CGRect) {
+        tableView.frame  = frame
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         print("init not called")
         initializeView()
     }
-    
-    override func updateConstraints() {
-        super.updateConstraints()
-        tableView.frame  = frame
-    }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
