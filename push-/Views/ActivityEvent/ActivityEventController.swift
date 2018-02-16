@@ -13,7 +13,7 @@ class ActivityEventController: UIViewController {
         super.viewDidLoad()
       
         initializeView()
-        let req = GetEventRequest()
+        let req = GetEventRequest(.news)
         GithubSession.send(request: req, completion: { response in
             switch response {
             case .success:
