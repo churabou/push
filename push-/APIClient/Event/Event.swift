@@ -43,17 +43,13 @@ struct Event {
     }
 
     
-    static func map(_ object: Any) {
+    static func map(_ object: Any) -> [Event] {
 
         guard let ary = object as? [Any] else {
             fatalError("辞書変換失敗")
         }
         
-        let result = ary.map { Event($0) }
-        
-        result.forEach {
-            print($0.displayedString)
-        }
+        return ary.map { Event($0) }
     }
     
     var displayedString: String {

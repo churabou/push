@@ -33,17 +33,17 @@ struct Entry {
 
 
 
+enum ActivityEventTarget {
+    case news
+    case user
+}
+
 struct GetEventRequest: GithubRequestType {
     
     public typealias ResponseType = [Event]
     
-    enum EventTarget {
-        case news
-        case user
-    }
-    
-    private var type: EventTarget
-    init(_ type: EventTarget) {
+    private var type: ActivityEventTarget
+    init(_ type: ActivityEventTarget) {
         self.type = type
     }
     public var method: HTTPMethod {
@@ -59,11 +59,7 @@ struct GetEventRequest: GithubRequestType {
     }
 
     public func responseFromObject(_ object: Any) -> ResponseType? {
-//        return Repository.map(object)
-        print(object)
-        let a = Event.map(object)
-        print("カキクケコ")
-        return nil
+        return Event.map(object)
     }
 }
 

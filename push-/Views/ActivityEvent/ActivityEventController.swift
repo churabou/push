@@ -2,35 +2,35 @@ import UIKit
 
 class ActivityEventController: UIViewController {
     
-    
-    func initializeView() {
-        title = "event"
-        view.backgroundColor = .green
-    }
-    
+//    internal var type: ActivityEventTarget?
+    let viewModel = ActivityEventViewModel()
+    let baseView = ActivityEventView()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-      
-        initializeView()
-//        let req = GetEventRequest(.news)
-//        GithubSession.send(request: req, completion: { response in
-//            switch response {
-//            case .success:
-//                return
-//            case .failure:
-//                return
-//            }
-//        })
+        baseView.viewModel = viewModel
+//        baseView.delegate = self
+        baseView.frame = view.frame
+        view.addSubview(baseView)
+        bindToViewModel()
+        viewModel.fetchEvent()
+    }
+    
+    fileprivate func bindToViewModel() {
         
-        let req = GetEventRequest(.user)
-        GithubSession.send(request: req, completion: { response in
-            switch response {
-            case .success:
-                return
-            case .failure:
-                return
+        viewModel.isLoadingDidSet = { (isloading) in
+            if isloading {
+                HUD.show()
+            } else {
+                HUD.hide()
             }
-        })
+        }
+        
+        viewModel.eventsDidSet = { _ in
+            self.baseView.update()
+        }
+        
+        viewModel.errorDidSet = { (error) in
+            print(error)
+        }
     }
 }
