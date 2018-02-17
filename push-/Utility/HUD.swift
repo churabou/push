@@ -38,7 +38,9 @@ class HUD: UIViewController {
         }
         
         if let controller = tc as? HUD {
-            controller.dismiss(animated: false, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: {
+                controller.dismiss(animated: false, completion: nil)
+            })
         }
     }
     
@@ -56,6 +58,7 @@ class HUD: UIViewController {
         
         view.backgroundColor = UIColor(white: 0, alpha: 0)
         wrapperView.backgroundColor = UIColor(white: 0.3, alpha: 0.5)
+        wrapperView.layer.cornerRadius = 8
         wrapperView.frame.size = CGSize(width: 80, height: 80)
         wrapperView.center = view.center
         view.addSubview(wrapperView)
