@@ -59,10 +59,10 @@ extension MainController: SideMenuDelegate {
         toggleSideMenu(true)
         var c = UIViewController()
         switch index {
-        case 0: c.view.backgroundColor = .red
-        case 1: c = ActivityEventController()
+        case 0: c = ProfileController()
+        case 1: c = ActivityEventController(.news)
         case 2: c = ActivityViewController()
-        case 3: c.view.backgroundColor = .cyan
+        case 3: c = ActivityEventController(.user)
         case 4: c = RLController()
         case 5: c.view.backgroundColor = .black
         default: return

@@ -2,6 +2,7 @@ import Foundation
 
 class ActivityEventViewModel {
     
+    var target: ActivityEventTarget = .news
     fileprivate var currentPage = 1
     fileprivate var isFeachedAll = false
     
@@ -33,7 +34,7 @@ class ActivityEventViewModel {
     
     func fetchEvent(){
         self.isLoading = true
-        let request = GetEventRequest(.news)
+        let request = GetEventRequest(target)
         GithubSession.send(request: request, completion: { (response) in
             self.isLoading = false
             switch response {
